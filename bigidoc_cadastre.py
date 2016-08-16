@@ -20,8 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 """
-from PyQt4.QtCore import QSettings, QTranslator, qVersion, QCoreApplication
-from PyQt4.QtGui import QAction, QIcon
+from PyQt4.QtCore import *
+from PyQt4.QtGui import *
 # Initialize Qt resources from file resources.py
 import resources
 # Import the code for the dialog
@@ -94,6 +94,7 @@ class BigIDocCadastre:
         add_to_toolbar=True,
         status_tip=None,
         whats_this=None,
+	separator=None,
         parent=None):
         """Add a toolbar icon to the toolbar.
 
@@ -144,6 +145,9 @@ class BigIDocCadastre:
 
         if whats_this is not None:
             action.setWhatsThis(whats_this)
+	
+	if separator is not None:
+	    self.toolbar.addSeparator()
 
         if add_to_toolbar:
             self.toolbar.addAction(action)
@@ -159,14 +163,17 @@ class BigIDocCadastre:
 
     def initGui(self):
         """Create the menu entries and toolbar icons inside the QGIS GUI."""
-
-        icon_path = ':/plugins/BigIDocCadastre/icon/main.png'
         self.add_action(
-            icon_path,
-            text=self.tr(u''),
+            ':/plugins/BigIDocCadastre/icons/main.png',
+            text=(u'Настройки'),
             callback=self.run,
             parent=self.iface.mainWindow())
-
+        self.add_action(
+            ':/plugins/BigIDocCadastre/icons/import_xml.png',
+            text=(u'Импорт XML'),
+            callback=self.run,
+	    separator='Y',
+            parent=self.iface.mainWindow())
 
     def unload(self):
         """Removes the plugin menu item and icon from QGIS GUI."""

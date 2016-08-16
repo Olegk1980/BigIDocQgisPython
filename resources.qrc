@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/plugins/BigIDocCadastre" >
-        <file>icon.png</file>
+        <file>icons/main.png</file>
+	<file>icons/import_xml.png</file>
     </qresource>
 </RCC>
