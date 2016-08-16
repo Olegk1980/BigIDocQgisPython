@@ -160,11 +160,7 @@ class BigIDocCadastre:
     def initGui(self):
         """Create the menu entries and toolbar icons inside the QGIS GUI."""
 
-<<<<<<< HEAD
         icon_path = ':/plugins/BigIDocCadastre/icon/main.png'
-=======
-        icon_path = ':/plugins/BigIDocCadastre/icon.png'
->>>>>>> adcfa7ccdb245a6f865b2c16ee4ad10bd5392d87
         self.add_action(
             icon_path,
             text=self.tr(u''),
