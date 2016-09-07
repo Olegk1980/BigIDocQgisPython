@@ -26,7 +26,11 @@ from PyQt4.QtGui import *
 import resources
 # Import the code for the dialog
 from bigidoc_cadastre_dialog import BigIDocCadastreDialog
-import os.path
+import os.path, sys
+
+sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/tools'))
+
+from import_xml import ImportXML
 
 
 class BigIDocCadastre:
@@ -67,6 +71,11 @@ class BigIDocCadastre:
         # TODO: We are going to let the user set this up in a future iteration
         self.toolbar = self.iface.addToolBar(u'BigIDocCadastre')
         self.toolbar.setObjectName(u'BigIDocCadastre')
+	#init dialog
+	#self.dlg_ImportXML       = None
+	self.dlg.pathDB.clear()
+	self.dlg.pushButton.clicked.connect(self.select_database_file)
+
 
     # noinspection PyMethodMayBeStatic
     def tr(self, message):
@@ -171,7 +180,7 @@ class BigIDocCadastre:
         self.add_action(
             ':/plugins/BigIDocCadastre/icons/import_xml.png',
             text=(u'Импорт XML'),
-            callback=self.run,
+            callback=self.runImportXML,
 	    separator='Y',
             parent=self.iface.mainWindow())
 
@@ -185,9 +194,15 @@ class BigIDocCadastre:
         # remove the toolbar
         del self.toolbar
 
+    def select_database_file(self):
+    	filenameDB = QFileDialog.getSaveFileName(self.dlg, u'Укажите путь к создоваемой БД',"", '*.sqlite')
+	if ".sqlite" not in filenameDB:
+		filenameDB = filenameDB + ".sqlite"
+    	self.dlg.pathDB.setText(filenameDB)
 
     def run(self):
         """Run method that performs all the real work"""
+	
         # show the dialog
         self.dlg.show()
         # Run the dialog event loop
@@ -196,4 +211,17 @@ class BigIDocCadastre:
         if result:
             # Do something useful here - delete the line containing pass and
             # substitute with your code.
+            pass
+    
+    def runImportXML(self):
+	"""Run method that performs all the real work"""
+	# create and show the dialog
+	dlg = ImportXML(self)
+        # show the dialog
+        dlg.show()
+        result = dlg.exec_()
+        # See if OK was pressed
+        if result == 1:
+            # do something useful (delete the line containing pass and
+            # substitute with your code
             pass
