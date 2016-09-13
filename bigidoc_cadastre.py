@@ -28,9 +28,9 @@ import resources
 from bigidoc_cadastre_dialog import BigIDocCadastreDialog
 import os.path, sys
 
-sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/tools'))
+#sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/tools'))
 
-from import_xml import ImportXML
+from tools.import_xml import ImportXML
 
 
 class BigIDocCadastre:
@@ -71,11 +71,10 @@ class BigIDocCadastre:
         # TODO: We are going to let the user set this up in a future iteration
         self.toolbar = self.iface.addToolBar(u'BigIDocCadastre')
         self.toolbar.setObjectName(u'BigIDocCadastre')
-	#init dialog
-	#self.dlg_ImportXML       = None
-	self.dlg.pathDB.clear()
-	self.dlg.pushButton.clicked.connect(self.select_database_file)
-
+        # init dialog
+        # self.dlg_ImportXML       = None
+        self.dlg.pathDB.clear()
+        self.dlg.pushButton.clicked.connect(self.select_database_file)
 
     # noinspection PyMethodMayBeStatic
     def tr(self, message):
@@ -92,19 +91,18 @@ class BigIDocCadastre:
         # noinspection PyTypeChecker,PyArgumentList,PyCallByClass
         return QCoreApplication.translate('BigIDocCadastre', message)
 
-
     def add_action(
-        self,
-        icon_path,
-        text,
-        callback,
-        enabled_flag=True,
-        add_to_menu=True,
-        add_to_toolbar=True,
-        status_tip=None,
-        whats_this=None,
-	separator=None,
-        parent=None):
+            self,
+            icon_path,
+            text,
+            callback,
+            enabled_flag=True,
+            add_to_menu=True,
+            add_to_toolbar=True,
+            status_tip=None,
+            whats_this=None,
+            separator=None,
+            parent=None):
         """Add a toolbar icon to the toolbar.
 
         :param icon_path: Path to the icon for this action. Can be a resource
@@ -154,9 +152,9 @@ class BigIDocCadastre:
 
         if whats_this is not None:
             action.setWhatsThis(whats_this)
-	
-	if separator is not None:
-	    self.toolbar.addSeparator()
+
+        if separator is not None:
+            self.toolbar.addSeparator()
 
         if add_to_toolbar:
             self.toolbar.addAction(action)
@@ -181,7 +179,7 @@ class BigIDocCadastre:
             ':/plugins/BigIDocCadastre/icons/import_xml.png',
             text=(u'Импорт XML'),
             callback=self.runImportXML,
-	    separator='Y',
+            separator='Y',
             parent=self.iface.mainWindow())
 
     def unload(self):
@@ -195,14 +193,14 @@ class BigIDocCadastre:
         del self.toolbar
 
     def select_database_file(self):
-    	filenameDB = QFileDialog.getSaveFileName(self.dlg, u'Укажите путь к создоваемой БД',"", '*.sqlite')
-	if ".sqlite" not in filenameDB:
-		filenameDB = filenameDB + ".sqlite"
-    	self.dlg.pathDB.setText(filenameDB)
+        filenameDB = QFileDialog.getSaveFileName(self.dlg, u'Укажите путь к создоваемой БД', "", '*.sqlite')
+        if ".sqlite" not in filenameDB:
+            filenameDB = filenameDB + ".sqlite"
+        self.dlg.pathDB.setText(filenameDB)
 
     def run(self):
         """Run method that performs all the real work"""
-	
+
         # show the dialog
         self.dlg.show()
         # Run the dialog event loop
@@ -212,11 +210,11 @@ class BigIDocCadastre:
             # Do something useful here - delete the line containing pass and
             # substitute with your code.
             pass
-    
+
     def runImportXML(self):
-	"""Run method that performs all the real work"""
-	# create and show the dialog
-	dlg = ImportXML(self)
+        """Run method that performs all the real work"""
+        # create and show the dialog
+        dlg = ImportXML(self)
         # show the dialog
         dlg.show()
         result = dlg.exec_()
