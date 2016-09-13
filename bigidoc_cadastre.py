@@ -72,7 +72,6 @@ class BigIDocCadastre:
         self.toolbar = self.iface.addToolBar(u'BigIDocCadastre')
         self.toolbar.setObjectName(u'BigIDocCadastre')
         # init dialog
-        # self.dlg_ImportXML       = None
         self.dlg.pathDB.clear()
         self.dlg.pushButton.clicked.connect(self.select_database_file)
 
