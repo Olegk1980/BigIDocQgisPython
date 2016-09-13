@@ -105,6 +105,7 @@ class BigIDocCadastre:
             parent=None):
         """Add a toolbar icon to the toolbar.
 
+        :param separator: delimiter
         :param icon_path: Path to the icon for this action. Can be a resource
             path (e.g. ':/plugins/foo/bar.png') or a normal file system path.
         :type icon_path: str
@@ -178,7 +179,7 @@ class BigIDocCadastre:
         self.add_action(
             ':/plugins/BigIDocCadastre/icons/import_xml.png',
             text=(u'Импорт XML'),
-            callback=self.runImportXML,
+            callback=self.run_import_xml,
             separator='Y',
             parent=self.iface.mainWindow())
 
@@ -193,10 +194,10 @@ class BigIDocCadastre:
         del self.toolbar
 
     def select_database_file(self):
-        filenameDB = QFileDialog.getSaveFileName(self.dlg, u'Укажите путь к создоваемой БД', "", '*.sqlite')
-        if ".sqlite" not in filenameDB:
-            filenameDB = filenameDB + ".sqlite"
-        self.dlg.pathDB.setText(filenameDB)
+        filename_db = QFileDialog.getSaveFileName(self.dlg, u'Укажите путь к создоваемой БД', "", '*.sqlite')
+        if ".sqlite" not in filename_db:
+            filename_db += ".sqlite"
+        self.dlg.pathDB.setText(filename_db)
 
     def run(self):
         """Run method that performs all the real work"""
@@ -211,7 +212,7 @@ class BigIDocCadastre:
             # substitute with your code.
             pass
 
-    def runImportXML(self):
+    def run_import_xml(self):
         """Run method that performs all the real work"""
         # create and show the dialog
         dlg = ImportXML(self)
