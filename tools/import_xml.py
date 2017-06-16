@@ -34,9 +34,10 @@ class ImportXML():
             self.msgLog.logMessage(u'Ошибка: '+err, 'BigiDocCadastre', level=self.msgLog.WARNING)
 
     def get_version_xsd():
-        xsd_schema = dict(V05_STD_KPT = {name = u'\\schem\\V05_STD_KPT\\STD_KPT.xsd', uri = ''},
-                          V06_STD_KPT = {name = u'\\schem\\V06_STD_KPT\\STD_KPT.xsd', uri = ''},
-                          V07_STD_KPT = {name = u'\\schem\\V07_STD_KPT\\STD_KPT.xsd', uri = ''},
-                          V08_STD_KPT = {name = u'\\schem\\V08_STD_KPT\\STD_KPT.xsd', uri = ''},
-                          
+        xsd_schema = dict(V05_STD_KPT = {name = u'\\schem\\V05_STD_KPT\\STD_KPT.xsd', uri = u''},
+                          V06_STD_KPT = {name = u'\\schem\\V06_STD_KPT\\STD_KPT.xsd', uri = u''},
+                          V07_STD_KPT = {name = u'\\schem\\V07_STD_KPT\\STD_KPT.xsd', uri = u''},
+                          V08_STD_KPT = {name = u'\\schem\\V08_STD_KPT\\STD_KPT.xsd', uri = u''},
+                          KPT_09 = {name = u'\\schem\\KPT_v09\\KPT\\KPT_v09.xsd', uri = u'urn://x-artefacts-rosreestr-ru/outgoing/kpt/9.0.3'},
+                          KPT_10 = {name = u'\\schem\\KPT_v10\\KPT\\KPT_v10.xsd', uri = u'urn://x-artefacts-rosreestr-ru/outgoing/kpt/10.0.1'},
         )
