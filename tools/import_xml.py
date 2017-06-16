@@ -20,42 +20,23 @@
  *                                                                         *
  ***************************************************************************/
 """
-# import os
-# from PyQt4 import QtGui, uic
-# from qgis.core import *
-# from qgis.gui import *
-
-
-from PyQt4 import uic
-from PyQt4.QtCore import *
-from PyQt4.QtGui import *
-from PyQt4.QtCore import *
-from qgis.core import *
-from qgis.gui import *
-
-# from datetime import *
-# from common import *
-
-import xml.etree.ElementTree as ET
-import uuid
+import lxml.sax as sax
 import os.path, sys
 import platform
 
-FORM_CLASS, _ = uic.loadUiType(os.path.join(os.path.dirname(__file__), 'import_xml_dialog.ui'))
+class ImportXML():
+    def __init__(self, msgLog):
+        self.msgLog = msgLog
+        self.msgLog.logMessage(u'Определяем схему XML ...', 'BigiDocCadastre', self.msgLog.INFO)
+        try:
+            get_version_xsd()
+        except Exception as err:
+            self.msgLog.logMessage(u'Ошибка: '+err, 'BigiDocCadastre', level=self.msgLog.WARNING)
 
-
-class ImportXML(QDialog, FORM_CLASS):
-    def __init__(self, parent=None):
-        super(ImportXML, self).__init__()
-        self.setupUi(self)
-        self.closeButton.clicked.connect(self.close_dialog)
-        self.selectFileButton.clicked.connect(self.select_xml_file)
-
-################################################################################
-
-    def select_xml_file(self):
-        file_xml = QFileDialog.getOpenFileName(self, u'Выбирете XML', "", '*.xml')
-
-################################################################################
-    def close_dialog(self):
-        self.close()
+    def get_version_xsd():
+        xsd_schema = dict(V05_STD_KPT = {name = u'\\schem\\V05_STD_KPT\\STD_KPT.xsd', uri = ''},
+                          V06_STD_KPT = {name = u'\\schem\\V06_STD_KPT\\STD_KPT.xsd', uri = ''},
+                          V07_STD_KPT = {name = u'\\schem\\V07_STD_KPT\\STD_KPT.xsd', uri = ''},
+                          V08_STD_KPT = {name = u'\\schem\\V08_STD_KPT\\STD_KPT.xsd', uri = ''},
+                          
+        )

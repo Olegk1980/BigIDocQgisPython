@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 rel. 2 (http://www.altova.com) by FGUP FKC Zemlja (FGUP FKC Zemlja) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:simpleType name="dUtilizations">
+		<xs:annotation>
+			<xs:documentation>Разрешенное использование</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="014001000000">
+				<xs:annotation>
+					<xs:documentation>Земли жилой застройки</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014001001000">
+				<xs:annotation>
+					<xs:documentation>Земли под жилыми домами многоэтажной и повышенной этажности застройки</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014001002000">
+				<xs:annotation>
+					<xs:documentation>Земли под домами индивидуальной жилой застройкой</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014001003000">
+				<xs:annotation>
+					<xs:documentation>Незанятые земли, отведенные под жилую застройку</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014002000000">
+				<xs:annotation>
+					<xs:documentation>Земли общественно-деловой застройки</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014002001000">
+				<xs:annotation>
+					<xs:documentation>Земли гаражей и автостоянок</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014002002000">
+				<xs:annotation>
+					<xs:documentation>Земли под объектами торговли, общественного питания, бытового обслуживания, автозаправочными и газонаполнительными станциями, предприятиями автосервиса</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014002003000">
+				<xs:annotation>
+					<xs:documentation>Земли учреждений и организаций народного образования, земли под объектами здравоохранения и социального обеспечения физической культуры и спорта, культуры и искусства, религиозными объектами</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014002004000">
+				<xs:annotation>
+					<xs:documentation>Земли под административно-управлен-ческими и общественными объектами, земли предприятий, организаций, учреждений финансирования, кредитования, страхования и пенсионного обеспечения</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014002005000">
+				<xs:annotation>
+					<xs:documentation>Земли под зданиями (строениями) рекреации</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014003000000">
+				<xs:annotation>
+					<xs:documentation>Земли под объектами промышленности</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014004000000">
+				<xs:annotation>
+					<xs:documentation>Земли общего пользования (геонимы в поселениях)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014005000000">
+				<xs:annotation>
+					<xs:documentation>Земли под объектами транспорта, связи, инженерных коммуникаций</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014005001000">
+				<xs:annotation>
+					<xs:documentation>Под объектами железнодорожного транспорта</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014005002000">
+				<xs:annotation>
+					<xs:documentation>Под объектами автомобильного транспорта</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014005003000">
+				<xs:annotation>
+					<xs:documentation>Под объектами морского, внутреннего водного транспорта</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014005004000">
+				<xs:annotation>
+					<xs:documentation>Под объектами воздушного транспорта</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014005005000">
+				<xs:annotation>
+					<xs:documentation>Под объектами иного транспорта, связи, инженерных коммуникаций</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014006000000">
+				<xs:annotation>
+					<xs:documentation>Земли сельскохозяйственного использования</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014006001000">
+				<xs:annotation>
+					<xs:documentation>Земли под крестьянскими (фермерскими) хозяйствами</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014006002000">
+				<xs:annotation>
+					<xs:documentation>Земли под предприятиями, занимающимися сельскохозяйственным производством</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014006003000">
+				<xs:annotation>
+					<xs:documentation>Земли под садоводческими объединениями и индивидуальными садоводами</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014006004000">
+				<xs:annotation>
+					<xs:documentation>Земли под огородническими объединениями и индивидуальными огородниками</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014006005000">
+				<xs:annotation>
+					<xs:documentation>Земли под дачными объединениями</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014006006000">
+				<xs:annotation>
+					<xs:documentation>Земли под личными подсобными хозяйствами</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014006007000">
+				<xs:annotation>
+					<xs:documentation>Земли под служебными наделами</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014006008000">
+				<xs:annotation>
+					<xs:documentation>Земли оленьих пастбищ</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014006009000">
+				<xs:annotation>
+					<xs:documentation>Для других сельскохозяйственных целей</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014007000000">
+				<xs:annotation>
+					<xs:documentation>Земли под лесами в поселениях (в том числе городскими лесами), под древесно-кустарниковой растительностью, не входящей в лесной фонд (в том числе лесопарками, парками, скверами, бульварами)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014008000000">
+				<xs:annotation>
+					<xs:documentation>Земли, занятые водными объектами, земли водоохранных зон водных объектов, а также земли, выделяемые для установления полос отвода и зон охраны водозаборов, гидротехнических сооружений и иных водохозяйственных сооружений, объектов.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014009000000">
+				<xs:annotation>
+					<xs:documentation>Земли под военными и иными режимными объектами</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014010000000">
+				<xs:annotation>
+					<xs:documentation>Земли под объектами иного специального назначения</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014011000000">
+				<xs:annotation>
+					<xs:documentation>Земли, не вовлеченные в градостроительную или иную деятельность (земли – резерв)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014012000000">
+				<xs:annotation>
+					<xs:documentation>Неопределено</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="014013000000">
+				<xs:annotation>
+					<xs:documentation>Значение отсутствует</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

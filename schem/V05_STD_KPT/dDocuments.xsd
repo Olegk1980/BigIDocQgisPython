@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 rel. 2 (http://www.altova.com) by FGUP FKC Zemlja (FGUP FKC Zemlja) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:simpleType name="dDocuments">
+		<xs:annotation>
+			<xs:documentation>Классификатор "Виды документов-оснований"</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="010001000000">
+				<xs:annotation>
+					<xs:documentation>Федеральный закон</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010002000000">
+				<xs:annotation>
+					<xs:documentation>Акт, изданный органом государственной власти</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010003000000">
+				<xs:annotation>
+					<xs:documentation>Акт, изданный органом местного самоуправления</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010004000000">
+				<xs:annotation>
+					<xs:documentation>Передаточный акт</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010005000000">
+				<xs:annotation>
+					<xs:documentation>Акт приемки в эксплуатацию законченного строительством объекта</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006000000">
+				<xs:annotation>
+					<xs:documentation>Договоры (соглашения)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006001000">
+				<xs:annotation>
+					<xs:documentation>Договор долевого участия в строительстве</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006002000">
+				<xs:annotation>
+					<xs:documentation>Инвестиционный договор</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006003000">
+				<xs:annotation>
+					<xs:documentation>Договор передачи жилья в собственность</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006004000">
+				<xs:annotation>
+					<xs:documentation>Договор аренды (субаренды)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006005000">
+				<xs:annotation>
+					<xs:documentation>Договор аренды с правом выкупа</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006006000">
+				<xs:annotation>
+					<xs:documentation>Договор дарения</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006007000">
+				<xs:annotation>
+					<xs:documentation>Договор об ипотеке</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006008000">
+				<xs:annotation>
+					<xs:documentation>Договор купли-продажи</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006009000">
+				<xs:annotation>
+					<xs:documentation>Договор мены</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006010000">
+				<xs:annotation>
+					<xs:documentation>Договор постоянной ренты</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006011000">
+				<xs:annotation>
+					<xs:documentation>Договор пожизненной ренты</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006012000">
+				<xs:annotation>
+					<xs:documentation>Договор пожизненного содержания с иждивением</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006013000">
+				<xs:annotation>
+					<xs:documentation>Договор строительного подряда</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006014000">
+				<xs:annotation>
+					<xs:documentation>Договор перевода долга</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006015000">
+				<xs:annotation>
+					<xs:documentation>Договор простого товарищества</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006016000">
+				<xs:annotation>
+					<xs:documentation>Договор уступки права требования</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006017000">
+				<xs:annotation>
+					<xs:documentation>Брачный договор</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006018000">
+				<xs:annotation>
+					<xs:documentation>Соглашение об изменении договора</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006019000">
+				<xs:annotation>
+					<xs:documentation>Соглашение о разделе наследственного имущества</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006020000">
+				<xs:annotation>
+					<xs:documentation>Соглашение о расторжении договора</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006021000">
+				<xs:annotation>
+					<xs:documentation>Соглашение о передаче недвижимости</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006022000">
+				<xs:annotation>
+					<xs:documentation>Соглашение об определении долей</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006023000">
+				<xs:annotation>
+					<xs:documentation>Соглашение о перераспределении долей</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006024000">
+				<xs:annotation>
+					<xs:documentation>Соглашение о разделе имущества</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006025000">
+				<xs:annotation>
+					<xs:documentation>Соглашение о выделе доли из общего имущества в натуре</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006026000">
+				<xs:annotation>
+					<xs:documentation>Соглашение об установлении сервитута</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006027000">
+				<xs:annotation>
+					<xs:documentation>Соглашение об отступном</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006028000">
+				<xs:annotation>
+					<xs:documentation>Соглашение о новации</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006029000">
+				<xs:annotation>
+					<xs:documentation>Соглашение об уплате алиментов</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006030000">
+				<xs:annotation>
+					<xs:documentation>Договор безвозмездного срочного пользования земельным участком</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006031000">
+				<xs:annotation>
+					<xs:documentation>Договор безвозмездного пользования участком лесного фонда</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006032000">
+				<xs:annotation>
+					<xs:documentation>Договор концессии участка лесного фонда</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006033000">
+				<xs:annotation>
+					<xs:documentation>Договор доверительного управления имуществом</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010006034000">
+				<xs:annotation>
+					<xs:documentation>Иное</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010007000000">
+				<xs:annotation>
+					<xs:documentation>Судебные акты</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010007001000">
+				<xs:annotation>
+					<xs:documentation>Определение</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010007002000">
+				<xs:annotation>
+					<xs:documentation>Постановление</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010007003000">
+				<xs:annotation>
+					<xs:documentation>Решение</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010007004000">
+				<xs:annotation>
+					<xs:documentation>Акт судебного пристава</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010008000000">
+				<xs:annotation>
+					<xs:documentation>План приватизации</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010009000000">
+				<xs:annotation>
+					<xs:documentation>Протокол о результатах торгов</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010010000000">
+				<xs:annotation>
+					<xs:documentation>Разделительный баланс</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010011000000">
+				<xs:annotation>
+					<xs:documentation>Свидетельство на право собственности на землю</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010012000000">
+				<xs:annotation>
+					<xs:documentation>Свидетельство на право постоянного (бессрочного) пользования землей</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010013000000">
+				<xs:annotation>
+					<xs:documentation>Государственный акт на право собственности на землю, пожизненного наследуемого владения, бессрочного (постоянного) пользования землей</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010014000000">
+				<xs:annotation>
+					<xs:documentation>Свидетельство о праве на наследство по завещанию</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010015000000">
+				<xs:annotation>
+					<xs:documentation>Свидетельство о праве на наследство по закону</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010016000000">
+				<xs:annotation>
+					<xs:documentation>Справка кооператива (жилищного, жилищно-строительного, дачного, гаражного, иного)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010017000000">
+				<xs:annotation>
+					<xs:documentation>Документ, подтверждающий отказ одаряемого принять дар</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010018000000">
+				<xs:annotation>
+					<xs:documentation>Документ, подтверждающий внесение имущества в уставный капитал</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010019000000">
+				<xs:annotation>
+					<xs:documentation>Иные основания</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010020000000">
+				<xs:annotation>
+					<xs:documentation>Неопределено</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010021000000">
+				<xs:annotation>
+					<xs:documentation>Значение отсутствует</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010022000000">
+				<xs:annotation>
+					<xs:documentation>Свидетельство о государственной регистрации права собственности</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="010023000000">
+				<xs:annotation>
+					<xs:documentation>Свидетельство на право пожизненного наследуемого владения</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

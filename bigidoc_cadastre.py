@@ -20,25 +20,20 @@
  *                                                                         *
  ***************************************************************************/
 """
+from qgis.core import *
+from qgis.gui import *
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 # Initialize Qt resources from file resources.py
 import resources
-# Import the code for the dialog
-from bigidoc_cadastre_dialog import BigIDocCadastreDialog
 import os.path, sys
-
-#sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/tools'))
 
 from tools.import_xml import ImportXML
 
-
 class BigIDocCadastre:
     """QGIS Plugin Implementation."""
-
     def __init__(self, iface):
         """Constructor.
-
         :param iface: An interface instance that will be passed to this class
             which provides the hook by which you can manipulate the QGIS
             application at run time.
@@ -62,28 +57,19 @@ class BigIDocCadastre:
             if qVersion() > '4.3.3':
                 QCoreApplication.installTranslator(self.translator)
 
-        # Create the dialog (after translation) and keep reference
-        self.dlg = BigIDocCadastreDialog()
-
         # Declare instance attributes
         self.actions = []
         self.menu = self.tr(u'&BigIDocCadastre')
         # TODO: We are going to let the user set this up in a future iteration
         self.toolbar = self.iface.addToolBar(u'BigIDocCadastre')
         self.toolbar.setObjectName(u'BigIDocCadastre')
-        # init dialog
-        self.dlg.pathDB.clear()
-        self.dlg.pushButton.clicked.connect(self.select_database_file)
 
     # noinspection PyMethodMayBeStatic
     def tr(self, message):
         """Get the translation for a string using Qt translation API.
-
         We implement this ourselves since we do not inherit QObject.
-
         :param message: String for translation.
         :type message: str, QString
-
         :returns: Translated version of message.
         :rtype: QString
         """
@@ -103,40 +89,30 @@ class BigIDocCadastre:
             separator=None,
             parent=None):
         """Add a toolbar icon to the toolbar.
-
         :param separator: delimiter
         :param icon_path: Path to the icon for this action. Can be a resource
             path (e.g. ':/plugins/foo/bar.png') or a normal file system path.
         :type icon_path: str
-
         :param text: Text that should be shown in menu items for this action.
         :type text: str
-
         :param callback: Function to be called when the action is triggered.
         :type callback: function
-
         :param enabled_flag: A flag indicating if the action should be enabled
             by default. Defaults to True.
         :type enabled_flag: bool
-
         :param add_to_menu: Flag indicating whether the action should also
             be added to the menu. Defaults to True.
         :type add_to_menu: bool
-
         :param add_to_toolbar: Flag indicating whether the action should also
             be added to the toolbar. Defaults to True.
         :type add_to_toolbar: bool
-
         :param status_tip: Optional text to show in a popup when mouse pointer
             hovers over the action.
         :type status_tip: str
-
         :param parent: Parent widget for the new action. Defaults None.
         :type parent: QWidget
-
         :param whats_this: Optional text to show in the status bar when the
             mouse pointer hovers over the action.
-
         :returns: The action that was created. Note that the action is also
             added to self.actions list.
         :rtype: QAction
@@ -146,7 +122,6 @@ class BigIDocCadastre:
         action = QAction(icon, text, parent)
         action.triggered.connect(callback)
         action.setEnabled(enabled_flag)
-
         if status_tip is not None:
             action.setStatusTip(status_tip)
 
@@ -165,7 +140,6 @@ class BigIDocCadastre:
                 action)
 
         self.actions.append(action)
-
         return action
 
     def initGui(self):
@@ -173,7 +147,7 @@ class BigIDocCadastre:
         self.add_action(
             ':/plugins/BigIDocCadastre/icons/main.png',
             text=(u'Настройки'),
-            callback=self.run,
+            callback=self.run_custom_prj,
             parent=self.iface.mainWindow())
         self.add_action(
             ':/plugins/BigIDocCadastre/icons/import_xml.png',
@@ -185,41 +159,19 @@ class BigIDocCadastre:
     def unload(self):
         """Removes the plugin menu item and icon from QGIS GUI."""
         for action in self.actions:
-            self.iface.removePluginMenu(
-                self.tr(u'&BigIDocCadastre'),
-                action)
+            self.iface.removePluginMenu(self.tr(u'&BigIDocCadastre'),action)
             self.iface.removeToolBarIcon(action)
         # remove the toolbar
         del self.toolbar
 
-    def select_database_file(self):
-        filename_db = QFileDialog.getSaveFileName(self.dlg, u'Укажите путь к создоваемой БД', "", '*.sqlite')
-        if ".sqlite" not in filename_db:
-            filename_db += ".sqlite"
-        self.dlg.pathDB.setText(filename_db)
-
-    def run(self):
-        """Run method that performs all the real work"""
-
-        # show the dialog
-        self.dlg.show()
-        # Run the dialog event loop
-        result = self.dlg.exec_()
-        # See if OK was pressed
-        if result:
-            # Do something useful here - delete the line containing pass and
-            # substitute with your code.
-            pass
+    def run_custom_prj(self):
+        NULL
 
     def run_import_xml(self):
         """Run method that performs all the real work"""
-        # create and show the dialog
-        dlg = ImportXML(self)
-        # show the dialog
-        dlg.show()
-        result = dlg.exec_()
-        # See if OK was pressed
-        if result == 1:
-            # do something useful (delete the line containing pass and
-            # substitute with your code
-            pass
+        curr_path = os.getcwd()        
+        list_file_xml = QFileDialog.getOpenFileNames(None, u'Выбирете XML', curr_path, '*.xml')        
+        QgsMessageLog.logMessage(u'Начинаем ипорт XML...', 'BigiDocCadastre', QgsMessageLog.INFO)
+        for file_xml in list_file_xml:
+            QgsMessageLog.logMessage(u'Файл - ' + file_xml, 'BigiDocCadastre', QgsMessageLog.INFO)
+            ImportXML(QgsMessageLog)
