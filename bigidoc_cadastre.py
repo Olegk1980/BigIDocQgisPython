@@ -170,8 +170,27 @@ class BigIDocCadastre:
     def run_import_xml(self):
         """Run method that performs all the real work"""
         curr_path = os.getcwd()        
-        list_file_xml = QFileDialog.getOpenFileNames(None, u'Выбирете XML', curr_path, '*.xml')        
-        QgsMessageLog.logMessage(u'Начинаем ипорт XML...', 'BigiDocCadastre', QgsMessageLog.INFO)
-        for file_xml in list_file_xml:
-            QgsMessageLog.logMessage(u'Файл - ' + file_xml, 'BigiDocCadastre', QgsMessageLog.INFO)
-            ImportXML(QgsMessageLog)
+        list_file_xml = QFileDialog.getOpenFileNames(None, u'Выбирете XML', curr_path, '*.xml')
+        if len(list_file_xml) == 0:
+            self.output_log(u'Выбор файлов отменен',0)
+        else:
+            self.output_log(u'Начинаем ипорт XML...',0)            
+            for file_xml in list_file_xml:
+                import_xml = ImportXML(self.output_log)
+                self.output_log(os.path.basename(file_xml) + u' обрабатывается...',0)
+                try:
+                    import_xml.fileXML = file_xml
+                    import_xml.validate_schema_xml()
+                    if import_xml.fileXSD != '':
+                        self.output_log(u'!!!AHTUNG!!!',0) 
+                except Exception as err:
+                    self.output_log(u'Ошибка: {0}'.format(err), 1)                    
+            
+    def output_log(self, text_log, type_log):
+        name_log = 'BigiDocCadastre'        
+        if type_log == 0:
+            QgsMessageLog.logMessage(text_log, name_log, QgsMessageLog.INFO)
+        elif type_log == 1:
+            QgsMessageLog.logMessage(text_log, name_log, QgsMessageLog.WARNING)
+        else:
+            QgsMessageLog.logMessage(text_log, name_log, QgsMessageLog.CRITICAL)

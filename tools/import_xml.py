@@ -20,24 +20,30 @@
  *                                                                         *
  ***************************************************************************/
 """
-import lxml.sax as sax
+
 import os.path, sys
 import platform
+from lxml import etree
+from common import *
 
 class ImportXML():
-    def __init__(self, msgLog):
-        self.msgLog = msgLog
-        self.msgLog.logMessage(u'Определяем схему XML ...', 'BigiDocCadastre', self.msgLog.INFO)
-        try:
-            get_version_xsd()
-        except Exception as err:
-            self.msgLog.logMessage(u'Ошибка: '+err, 'BigiDocCadastre', level=self.msgLog.WARNING)
+    def __init__(self, msg_log):
+        self.msgLog = msg_log
+        self.fileXML = ''
+        self.fileXSD = ''
 
-    def get_version_xsd():
-        xsd_schema = dict(V05_STD_KPT = {name = u'\\schem\\V05_STD_KPT\\STD_KPT.xsd', uri = u''},
-                          V06_STD_KPT = {name = u'\\schem\\V06_STD_KPT\\STD_KPT.xsd', uri = u''},
-                          V07_STD_KPT = {name = u'\\schem\\V07_STD_KPT\\STD_KPT.xsd', uri = u''},
-                          V08_STD_KPT = {name = u'\\schem\\V08_STD_KPT\\STD_KPT.xsd', uri = u''},
-                          KPT_09 = {name = u'\\schem\\KPT_v09\\KPT\\KPT_v09.xsd', uri = u'urn://x-artefacts-rosreestr-ru/outgoing/kpt/9.0.3'},
-                          KPT_10 = {name = u'\\schem\\KPT_v10\\KPT\\KPT_v10.xsd', uri = u'urn://x-artefacts-rosreestr-ru/outgoing/kpt/10.0.1'},
-        )
+    def validate_schema_xml(self):
+        self.msgLog(u'Определяем схему XML ...',0)
+                
+        for schema_xml in schemas_xml:
+            xmlschema_doc = etree.parse(os.path.abspath(schemas_xml[schema_xml]['name']))
+            xmlschema = etree.XMLSchema(xmlschema_doc)
+            doc = etree.parse(self.fileXML)
+            if xmlschema.validate(doc):
+                self.fileXSD = schema_xml
+                break
+        
+        if self.fileXSD == '':
+            self.msgLog(u'Неудалось определить схему XML импорт объектов не возможен!!!',0)
+        else:
+            self.msgLog(u'Схема разбора XML: ' + self.fileXSD,0)

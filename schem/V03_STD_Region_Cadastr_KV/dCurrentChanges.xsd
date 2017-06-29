@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2011 rel. 2 (http://www.altova.com) by FGUP FKC Zemlja (FGUP FKC Zemlja) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:simpleType name="dCurrentChanges">
+		<xs:annotation>
+			<xs:documentation>Словарь текущих изменений</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="2284001000000">
+				<xs:annotation>
+					<xs:documentation>Уточнение местоположения границы и (или) площади</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="284002000000">
+				<xs:annotation>
+					<xs:documentation>Перевод в другую категорию</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="284003000000">
+				<xs:annotation>
+					<xs:documentation>Изменение разрешенного использования</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="284004000000">
+				<xs:annotation>
+					<xs:documentation>Образование частей</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="284005000000">
+				<xs:annotation>
+					<xs:documentation>Внесение результатов кадастровой оценки</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="284006000000">
+				<xs:annotation>
+					<xs:documentation>Уточнение сведений о составе единого землепользования</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="284007000000">
+				<xs:annotation>
+					<xs:documentation>Изменение сведений о правах</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="284008000000">
+				<xs:annotation>
+					<xs:documentation>Изменение местоположения</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="284009000000">
+				<xs:annotation>
+					<xs:documentation>Изменением адреса правообладателя</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="284010000000">
+				<xs:annotation>
+					<xs:documentation>Изменения сведений о природных объектах</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="284011000000">
+				<xs:annotation>
+					<xs:documentation>Изменения сведений об объектах капитального строительства</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
