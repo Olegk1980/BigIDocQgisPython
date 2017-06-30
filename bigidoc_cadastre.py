@@ -27,8 +27,7 @@ from PyQt4.QtGui import *
 # Initialize Qt resources from file resources.py
 import resources
 import os.path, sys
-
-from tools.import_xml import ImportXML
+import import_xml
 
 class BigIDocCadastre:
     """QGIS Plugin Implementation."""
@@ -176,13 +175,13 @@ class BigIDocCadastre:
         else:
             self.output_log(u'Начинаем ипорт XML...',0)            
             for file_xml in list_file_xml:
-                import_xml = ImportXML(self.output_log)
+                import_xml = import_xml. ImportXML(self.output_log)
                 self.output_log(os.path.basename(file_xml) + u' обрабатывается...',0)
                 try:
                     import_xml.fileXML = file_xml
                     import_xml.validate_schema_xml()
                     if import_xml.fileXSD != '':
-                        self.output_log(u'!!!AHTUNG!!!',0) 
+                        import_xml.parsing_xml()
                 except Exception as err:
                     self.output_log(u'Ошибка: {0}'.format(err), 1)                    
             
